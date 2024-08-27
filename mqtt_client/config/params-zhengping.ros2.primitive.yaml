@@ -7,7 +7,7 @@
         enabled: true
         # ca_certificate: /home/nick/zhengping_ws/mqtt_client_ws/install/mqtt_client/share/mqtt_client/config/rootCA.ros2.pem
     client:
-      id: "ZHENGPING-001"
+      # id: "ZHENGPING-001"
       clean_session: false
       keep_alive_interval: 60.0
       tls:
@@ -24,7 +24,7 @@
           mqtt_topic: pingpong/primitive
           primitive: true
         /device/exception:
-          mqtt_topic: /device/ZHENGPING-001/exception
+          # mqtt_topic: /device/ZHENGPING-001/exception
           primitive: true
           ros_type: std_msgs/msg/String
           advanced:
@@ -32,7 +32,7 @@
               qos: 1
               retained: false
         /device/all_exception:
-          mqtt_topic: /device/ZHENGPING-001/all-exception
+          # mqtt_topic: /device/ZHENGPING-001/all-exception
           primitive: true
           ros_type: std_msgs/msg/String
           advanced:
@@ -40,7 +40,7 @@
               qos: 1
               retained: false
         /device/deviceinfo:
-          mqtt_topic: /device/ZHENGPING-001/deviceinfo
+          # mqtt_topic: /device/ZHENGPING-001/deviceinfo
           primitive: true
           ros_type: std_msgs/msg/String
           advanced:

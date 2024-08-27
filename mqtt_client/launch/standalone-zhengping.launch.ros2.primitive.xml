@@ -2,10 +2,15 @@
 
   <arg name="namespace" default="" />
   <arg name="node_name" default="mqtt_client" />
+  <arg name="did" default="ZHENGPING-00X" />
   <arg name="params_file" default="$(find-pkg-share mqtt_client)/config/params-zhengping.ros2.primitive.yaml" />
 
   <node pkg="mqtt_client" exec="mqtt_client" name="$(var node_name)" namespace="$(var namespace)" output="screen">
     <param name="broker.tls.ca_certificate" value="$(find-pkg-share mqtt_client)/config/rootCA.ros2.pem" />
+    <param name="client.id" value="$(var did)" />
+    <param name="bridge.ros2mqtt./device/exception.mqtt_topic" value="/device/$(var did)/exception" />
+    <param name="bridge.ros2mqtt./device/all_exception.mqtt_topic" value="/device/$(var did)/all-exception" />
+    <param name="bridge.ros2mqtt./device/deviceinfo.mqtt_topic" value="/device/$(var did)/deviceinfo" />
     <param from="$(var params_file)" />
   </node>
 

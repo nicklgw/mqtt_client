@@ -1,0 +1,15 @@
+[Unit]
+Description=exchange ROS messages via an MQTT broker using the MQTT protocol
+After=network.target
+
+[Service]
+Type=simple
+User=bzlrobot
+ExecStart=/usr/bin/bash /opt/ros/humble/share/mqtt_client/launch/mqtt_client.sh
+ExecStop=/usr/bin/killall -INT mqtt_client
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
