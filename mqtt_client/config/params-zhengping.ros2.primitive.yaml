@@ -18,11 +18,29 @@
         ros_topics:
           - /ping/primitive
           - /device/exception
+          - /device/all_exception
+          - /device/deviceinfo
         /ping/primitive:
           mqtt_topic: pingpong/primitive
           primitive: true
         /device/exception:
           mqtt_topic: /device/ZHENGPING-001/exception
+          primitive: true
+          ros_type: std_msgs/msg/String
+          advanced:
+            mqtt:
+              qos: 1
+              retained: false
+        /device/all_exception:
+          mqtt_topic: /device/ZHENGPING-001/all-exception
+          primitive: true
+          ros_type: std_msgs/msg/String
+          advanced:
+            mqtt:
+              qos: 1
+              retained: false
+        /device/deviceinfo:
+          mqtt_topic: /device/ZHENGPING-001/deviceinfo
           primitive: true
           ros_type: std_msgs/msg/String
           advanced:
